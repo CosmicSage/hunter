@@ -8,7 +8,7 @@ At This Point It only supports Intershala. In future I'll add more websites
 
 
 ## Installation
-You will need python and pip. install dependencies :
+You will need python and pip. Install dependencies with:
 ```bash
 pip3 install --trusted-host pypi.python.org -r requirements.txt
 ```
@@ -19,8 +19,8 @@ Pretty darn simple :
 cd hunter; python3.6 main.py
 ```
 
-Then one must enter whether they want a remote job or all jobs && also set The Lower Limit of Salary/Stipend
+Then one must enter whether they want a remote job or all jobs & also set The Lower Limit of Salary/Stipend
 
 
 ## Future
-Add More Websites && A SQLite Database to keep track of which jobs you have already applied for
+Add More Websites & A SQLite Database to keep track of which jobs you have already applied for
