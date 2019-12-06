@@ -6,14 +6,16 @@ import requests, sys, time
 # Take User Input
 mode = input("Enter Mode:")
 price = int(input("Enter Lower Limit:"))
-type = "internship"
+location = input("Enter Location:")
+type = f"internship-in-{location}"
 if mode :
     mode = "work-from-home-"
     type = "jobs"
+
 if not price : price = 5000
 
 try:
-    for i in range(10):
+    for i in range(20):
         URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
         # print(f"\n\n{URL}\n\n")
         r = requests.get(URL)
