@@ -15,7 +15,7 @@ if mode :
 if not price : price = 5000
 
 try:
-    for i in range(20):
+    for i in range(25):
         URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
         # print(f"\n\n{URL}\n\n")
         r = requests.get(URL)
