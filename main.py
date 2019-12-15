@@ -3,6 +3,13 @@ global CONST
 CONST = "https://internshala.com"
 import requests, sys, time
 
+def compare(range, price):
+    try:
+        if len(range) == 1 and price <= int(range[0]): return True
+        elif price <= int(range[0]) or price <= int(range[1]): return True
+    except Exception as e:
+        return False
+
 # Take User Input
 mode = input("Enter Mode:")
 price = int(input("Enter Lower Limit:"))
@@ -25,12 +32,8 @@ try:
         for internship in internships:
             meta = internship.find(class_="stipend_container_table_cell").text.split()
             range = meta[0].split('-')
-            try:
-                money = int(range[0])
-            except Exception as e:
-                money  = 0
 
-            if price <= money:
+            if compare(range, price):
                 name = internship.find(class_="link_display_like_text").text.split()
                 link = CONST + internship.find(class_="view_detail_button")["href"]
                 print(name, link, range)
