@@ -23,4 +23,4 @@ Then one must enter whether they want a remote job or all jobs & also set The Lo
 
 
 ## Future
-Add More Websites & A SQLite Database to keep track of which jobs you have already applied for
+Add More Websites & A SQLite Database to keep track of which jobs you have already applied for + GUI

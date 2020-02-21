@@ -9,7 +9,9 @@ def compare(range, price):
         elif price <= int(range[0]) or price <= int(range[1]): return True
     except Exception as e:
         return False
-
+def incentives(meta):
+    if '+' in meta: return meta[meta.index('+') + 1]
+    return ''
 # Take User Input
 mode = input("Enter Mode:")
 price = int(input("Enter Lower Limit:"))
@@ -36,7 +38,7 @@ try:
             if compare(range, price):
                 name = internship.find(class_="link_display_like_text").text.split()
                 link = CONST + internship.find(class_="view_detail_button")["href"]
-                print(name, link, range)
+                print(name, link, incentives(meta), range)
 
 except Exception as e:
     print("No More Pages Left. Exiting....")
