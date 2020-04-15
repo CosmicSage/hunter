@@ -27,7 +27,7 @@ if not price : price = 5000
 for i in range(25):
     try:
         URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
-        print(f"\n\n{URL}\n{i}\n")
+        print(f"{URL}\n{i}\n")
 
         r = requests.get(URL)
         from bs4 import BeautifulSoup
