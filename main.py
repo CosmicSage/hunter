@@ -32,14 +32,14 @@ for i in range(25):
         else: URL = F"{CONST}/internships/keywords-{keyword}/page-{i+1}"
         print(f"{URL}\n{i}\n")
 
-        r = requests.get(URL)
+        r, meta = requests.get(URL), ""
         from bs4 import BeautifulSoup
         soup = BeautifulSoup(r.text, "html5lib")
         internships = soup.find_all(class_='individual_internship')
         if len(internships) == 2: sys.exit("No more results left")
 
         for internship in internships:
-            meta = internship.find(class_="stipend_container_table_cell").text.split()
+            meta = internship.find(class_="stipend").text.split()
             range = meta[0].split('-')
 
             if compare(range, int(price)):
@@ -53,6 +53,7 @@ for i in range(25):
         from datetime import datetime
         with open('./logs/error.log', 'a') as target:
             target.write(f"{datetime.now().strftime('%H:%M:%S %b %d, %Y')}\n{internship}:{meta}\n")
+        if "not find" in internship.find(class_="heading_6").text: exit("Maximum pages searched")
 exit(0)
 """
 from the block of internships:
