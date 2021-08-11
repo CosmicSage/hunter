@@ -4,7 +4,7 @@ Many Hiring Platforms (Ex. Indeed, Intershala, Stackoverflow) Dont allow filteri
 
 Therefore I made this extremely simple scraping tool that allows one find relevant jobs. Unfortunately The day these websites change their DOM structure this tool will need an update
 
-At This Point It only supports Intershala. In future I'll add more websites
+At This Point It only supports Intershala.com. In future I'll add more websites
 
 
 ## Installation
@@ -16,10 +16,10 @@ pip3 install --trusted-host pypi.python.org -r requirements.txt
 ## Usage
 Pretty darn simple :
 ```bash
-cd hunter; python3.6 main.py
+cd hunter; mkdir logs; python3 main.py
 ```
 
-Then one must enter whether they want a remote job or all jobs & also set The Lower Limit of Salary/Stipend
+Then one must enter whether they want a remote job or all jobs & also set The Lower Limit of Salary
 
 
 ## Future
