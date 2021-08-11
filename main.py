@@ -13,11 +13,14 @@ def compare(range, price):
         elif price <= int(range[0]) or price <= int(range[1]): return True
     except Exception as e: return False
 
+
 # Take User Input
 mode = input("Enter Mode:")
 price = input("Enter Lower Limit:")
 location = input("Enter Location:")
 keyword = input("Any Keyword?:")
+want_file = input("Generate File?(Press Enter for NO):")
+want_file = True if want_file else False
 type = f"internship-in-{location}"
 
 if mode :
@@ -26,7 +29,7 @@ if mode :
 
 if not price : price = 5000
 
-for i in range(25):
+for i in range(2):
     try:
         if not keyword: URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
         else: URL = F"{CONST}/internships/keywords-{keyword}/page-{i+1}"
@@ -45,6 +48,7 @@ for i in range(25):
             if compare(range, int(price)):
                 name = internship.find(class_="link_display_like_text").text.split()
                 link = CONST + internship.find(class_="view_detail_button")["href"]
+                if want_file: generate_file(name, link, incentives(meta), range)
                 print(name, link, incentives(meta), range)
 
     except AttributeError as e:
