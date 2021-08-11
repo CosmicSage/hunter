@@ -6,7 +6,7 @@ Therefore I made this extremely simple scraping tool that allows one find releva
 
 At This Point It only supports Intershala.com. In future I'll add more websites
 
-
+![Image of a Hunter](https://cdn.gamer-network.net/2020/metabomb/sova-ultimate.jpg)
 ## Installation
 You will need python and pip. Install dependencies with:
 ```bash
