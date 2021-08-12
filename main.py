@@ -8,7 +8,10 @@ from bs4 import BeautifulSoup
 def generate_file(blocks):
     with open("./result.html", 'r+') as target:
         root = BeautifulSoup(target, "html5lib").find(id="root")
+        print(root)
         root.clear()
+        print(root)
+        exit()
         for name, link, incentives, range in blocks:
             tag = BeautifulSoup(f"""
                 <div>
@@ -17,10 +20,10 @@ def generate_file(blocks):
                     <h3><a href={link}>Apply</a></h3>
                 </div>
                 """, "html5lib")
-            root.append(tag)
+            root.append(tag.div)
 
         # root.children = []
-        # print(root)
+        print(root)
 # generate_file()
 # exit()
 
@@ -49,7 +52,7 @@ if mode :
 
 if not price : price = 5000
 blocks = []
-for i in range(3):
+for i in range(1):
     try:
         if not keyword: URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
         else: URL = F"{CONST}/internships/keywords-{keyword}/page-{i+1}"
