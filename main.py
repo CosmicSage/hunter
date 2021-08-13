@@ -7,24 +7,28 @@ from bs4 import BeautifulSoup
 # if want_file: generate_file(name, link, incentives(meta), range)
 def generate_file(blocks):
     with open("./result.html", 'r+') as target:
-        root = BeautifulSoup(target, "html5lib").find(id="root")
-        print(root)
+        html = BeautifulSoup(target, "html5lib")
+        # print(root)
+        root = html.find(id="root")
         root.clear()
-        print(root)
-        exit()
+        # print(html)
+        # exit()
         for name, link, incentives, range in blocks:
             tag = BeautifulSoup(f"""
                 <div>
                     <h1>{' '.join(name)}</h1>
                     <h2>Reward: {'-'.join(range)} {incentives}</h2>
-                    <h3><a href={link}>Apply</a></h3>
+                    <h3><a href={link} target="_blank">Apply</a></h3>
                 </div>
                 """, "html5lib")
             root.append(tag.div)
+        # print(html.__str__())
+        target.seek(0)
+        target.write(html.__str__())
+        target.truncate()
 
         # root.children = []
-        print(root)
-# generate_file()
+# generate_file([])
 # exit()
 
 def incentives(meta):
@@ -52,7 +56,7 @@ if mode :
 
 if not price : price = 5000
 blocks = []
-for i in range(1):
+for i in range(25):
     try:
         if not keyword: URL = f"{CONST}/internships/{mode}computer%20science-{type}/page-{i+1}"
         else: URL = F"{CONST}/internships/keywords-{keyword}/page-{i+1}"
