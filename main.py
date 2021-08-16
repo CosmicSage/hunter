@@ -78,12 +78,13 @@ for i in range(25):
                 print(name, link, incentives(meta), range)
 
     except AttributeError as e:
-        print(e)
         # info = name if name is not None else meta
         with open('./logs/error.log', 'a') as target:
             from datetime import datetime
             target.write(f"{datetime.now().strftime('%H:%M:%S %b %d, %Y')}\n{internship}:{meta}\n")
         if "not find" in internship.find(class_="heading_6").text: exit("Maximum pages searched")
+    except KeyboardInterrupt:
+        break
 
 if want_file:
     generate_file(blocks)
