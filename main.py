@@ -17,8 +17,8 @@ def generate_file(blocks):
             tag = BeautifulSoup(f"""
                 <div>
                     <h1>{' '.join(name)}</h1>
-                    <h2>Reward: {'-'.join(range)} {incentives}</h2>
-                    <h3><a href={link} target="_blank">Apply</a></h3>
+                    <h3>Reward: {'-'.join(range)} {incentives}</h3>
+                    <h2><a href={link} target="_blank">{link}</a></h2>
                 </div>
                 """, "html5lib")
             root.append(tag.div)
@@ -82,7 +82,9 @@ for i in range(25):
         with open('./logs/error.log', 'a') as target:
             from datetime import datetime
             target.write(f"{datetime.now().strftime('%H:%M:%S %b %d, %Y')}\n{internship}:{meta}\n")
-        if "not find" in internship.find(class_="heading_6").text: exit("Maximum pages searched")
+        if "not find" in internship.find(class_="heading_6").text:
+            print("Maximum pages searched")
+            break
     except KeyboardInterrupt:
         break
 
